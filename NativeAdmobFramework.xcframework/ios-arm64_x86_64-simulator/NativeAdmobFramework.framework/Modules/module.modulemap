@@ -1,6 +1,0 @@
-framework module NativeAdmobFramework {
-  umbrella header "NativeAdmobFramework.h"
-  export *
-
-  module * { export * }
-}
