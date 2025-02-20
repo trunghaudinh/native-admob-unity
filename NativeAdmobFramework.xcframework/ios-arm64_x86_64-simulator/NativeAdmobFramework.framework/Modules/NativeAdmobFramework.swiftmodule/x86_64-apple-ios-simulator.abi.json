@@ -1,0 +1,1498 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "NativeAdmobFramework",
+    "printedName": "NativeAdmobFramework",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NativeAdCustomListener",
+        "printedName": "NativeAdCustomListener",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onAdLoading",
+            "printedName": "onAdLoading()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NativeAdmobFramework@objc(pl)NativeAdCustomListener(im)onAdLoading",
+            "mangledName": "$s20NativeAdmobFramework0A16AdCustomListenerP02onD7LoadingyyF",
+            "moduleName": "NativeAdmobFramework",
+            "genericSig": "<τ_0_0 where τ_0_0 : NativeAdmobFramework.NativeAdCustomListener>",
+            "sugared_genericSig": "<Self where Self : NativeAdmobFramework.NativeAdCustomListener>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Optional",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onAdClicked",
+            "printedName": "onAdClicked()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NativeAdmobFramework@objc(pl)NativeAdCustomListener(im)onAdClicked",
+            "mangledName": "$s20NativeAdmobFramework0A16AdCustomListenerP02onD7ClickedyyF",
+            "moduleName": "NativeAdmobFramework",
+            "genericSig": "<τ_0_0 where τ_0_0 : NativeAdmobFramework.NativeAdCustomListener>",
+            "sugared_genericSig": "<Self where Self : NativeAdmobFramework.NativeAdCustomListener>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Optional",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onAdImpression",
+            "printedName": "onAdImpression()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NativeAdmobFramework@objc(pl)NativeAdCustomListener(im)onAdImpression",
+            "mangledName": "$s20NativeAdmobFramework0A16AdCustomListenerP02onD10ImpressionyyF",
+            "moduleName": "NativeAdmobFramework",
+            "genericSig": "<τ_0_0 where τ_0_0 : NativeAdmobFramework.NativeAdCustomListener>",
+            "sugared_genericSig": "<Self where Self : NativeAdmobFramework.NativeAdCustomListener>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Optional",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onAdLoaded",
+            "printedName": "onAdLoaded()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NativeAdmobFramework@objc(pl)NativeAdCustomListener(im)onAdLoaded",
+            "mangledName": "$s20NativeAdmobFramework0A16AdCustomListenerP02onD6LoadedyyF",
+            "moduleName": "NativeAdmobFramework",
+            "genericSig": "<τ_0_0 where τ_0_0 : NativeAdmobFramework.NativeAdCustomListener>",
+            "sugared_genericSig": "<Self where Self : NativeAdmobFramework.NativeAdCustomListener>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onAdLoadFailed",
+            "printedName": "onAdLoadFailed()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NativeAdmobFramework@objc(pl)NativeAdCustomListener(im)onAdLoadFailed",
+            "mangledName": "$s20NativeAdmobFramework0A16AdCustomListenerP02onD10LoadFailedyyF",
+            "moduleName": "NativeAdmobFramework",
+            "genericSig": "<τ_0_0 where τ_0_0 : NativeAdmobFramework.NativeAdCustomListener>",
+            "sugared_genericSig": "<Self where Self : NativeAdmobFramework.NativeAdCustomListener>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onAdPaidEvent",
+            "printedName": "onAdPaidEvent(adValue:currencyCode:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int64",
+                "printedName": "Swift.Int64",
+                "usr": "s:s5Int64V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NativeAdmobFramework@objc(pl)NativeAdCustomListener(im)onAdPaidEventWithAdValue:currencyCode:",
+            "mangledName": "$s20NativeAdmobFramework0A16AdCustomListenerP02onD9PaidEvent7adValue12currencyCodeys5Int64V_SStF",
+            "moduleName": "NativeAdmobFramework",
+            "genericSig": "<τ_0_0 where τ_0_0 : NativeAdmobFramework.NativeAdCustomListener>",
+            "sugared_genericSig": "<Self where Self : NativeAdmobFramework.NativeAdCustomListener>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@NativeAdmobFramework@objc(pl)NativeAdCustomListener",
+        "mangledName": "$s20NativeAdmobFramework0A16AdCustomListenerP",
+        "moduleName": "NativeAdmobFramework",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NativeAdListenerWrapper",
+        "printedName": "NativeAdListenerWrapper",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(onLoadSuccess:onLoadFail:onAdLoading:onAdClicked:onAdPaidEvent:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAdListenerWrapper",
+                "printedName": "NativeAdmobFramework.NativeAdListenerWrapper",
+                "usr": "c:@M@NativeAdmobFramework@objc(cs)NativeAdListenerWrapper"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(GoogleMobileAds.NativeAd) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NativeAd",
+                    "printedName": "GoogleMobileAds.NativeAd",
+                    "usr": "c:objc(cs)GADNativeAd"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(any Swift.Error) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Foundation.NSDecimalNumber, Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Foundation.NSDecimalNumber, Swift.String)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NSDecimalNumber",
+                        "printedName": "Foundation.NSDecimalNumber",
+                        "usr": "c:objc(cs)NSDecimalNumber"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:20NativeAdmobFramework0A17AdListenerWrapperC13onLoadSuccess0gH4Fail0gD7Loading0gD7Clicked0gD9PaidEventACySo09GADNativeD0Cc_ys5Error_pcyycyycySo15NSDecimalNumberC_SStctcfc",
+            "mangledName": "$s20NativeAdmobFramework0A17AdListenerWrapperC13onLoadSuccess0gH4Fail0gD7Loading0gD7Clicked0gD9PaidEventACySo09GADNativeD0Cc_ys5Error_pcyycyycySo15NSDecimalNumberC_SStctcfc",
+            "moduleName": "NativeAdmobFramework",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "adLoader",
+            "printedName": "adLoader(_:didReceive:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdLoader",
+                "printedName": "GoogleMobileAds.AdLoader",
+                "usr": "c:objc(cs)GADAdLoader"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAd",
+                "printedName": "GoogleMobileAds.NativeAd",
+                "usr": "c:objc(cs)GADNativeAd"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NativeAdmobFramework@objc(cs)NativeAdListenerWrapper(im)adLoader:didReceiveNativeAd:",
+            "mangledName": "$s20NativeAdmobFramework0A17AdListenerWrapperC8adLoader_10didReceiveySo05GADAdH0C_So09GADNativeD0CtF",
+            "moduleName": "NativeAdmobFramework",
+            "objc_name": "adLoader:didReceiveNativeAd:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "adLoader",
+            "printedName": "adLoader(_:didFailToReceiveAdWithError:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AdLoader",
+                "printedName": "GoogleMobileAds.AdLoader",
+                "usr": "c:objc(cs)GADAdLoader"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "any Swift.Error",
+                "usr": "s:s5ErrorP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@NativeAdmobFramework@objc(cs)NativeAdListenerWrapper(im)adLoader:didFailToReceiveAdWithError:",
+            "mangledName": "$s20NativeAdmobFramework0A17AdListenerWrapperC8adLoader_016didFailToReceiveD9WithErrorySo05GADAdH0C_s0N0_ptF",
+            "moduleName": "NativeAdmobFramework",
+            "objc_name": "adLoader:didFailToReceiveAdWithError:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAdListenerWrapper",
+                "printedName": "NativeAdmobFramework.NativeAdListenerWrapper",
+                "usr": "c:@M@NativeAdmobFramework@objc(cs)NativeAdListenerWrapper"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@NativeAdmobFramework@objc(cs)NativeAdListenerWrapper(im)init",
+            "mangledName": "$s20NativeAdmobFramework0A17AdListenerWrapperCACycfc",
+            "moduleName": "NativeAdmobFramework",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@NativeAdmobFramework@objc(cs)NativeAdListenerWrapper",
+        "mangledName": "$s20NativeAdmobFramework0A17AdListenerWrapperC",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UnityEvent",
+        "printedName": "UnityEvent",
+        "declKind": "Class",
+        "usr": "s:20NativeAdmobFramework10UnityEventC",
+        "mangledName": "$s20NativeAdmobFramework10UnityEventC",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "UnityFramework",
+        "printedName": "UnityFramework",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UnityNativeAd",
+        "printedName": "UnityNativeAd",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnityNativeAd",
+                "printedName": "NativeAdmobFramework.UnityNativeAd",
+                "usr": "s:20NativeAdmobFramework05UnityA2AdC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:20NativeAdmobFramework05UnityA2AdCACycfc",
+            "mangledName": "$s20NativeAdmobFramework05UnityA2AdCACycfc",
+            "moduleName": "NativeAdmobFramework",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "setupNativeKey",
+            "printedName": "setupNativeKey(viewController:nativeKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA2AdC05setupA3Key14viewController06nativeG0ySo06UIViewI0C_SStF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA2AdC05setupA3Key14viewController06nativeG0ySo06UIViewI0C_SStF",
+            "moduleName": "NativeAdmobFramework",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadNativeAd",
+            "printedName": "loadNativeAd(listener:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NativeAdListenerWrapper",
+                "printedName": "NativeAdmobFramework.NativeAdListenerWrapper",
+                "usr": "c:@M@NativeAdmobFramework@objc(cs)NativeAdListenerWrapper"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA2AdC04loadaE08listeneryAA0aE15ListenerWrapperC_tF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA2AdC04loadaE08listeneryAA0aE15ListenerWrapperC_tF",
+            "moduleName": "NativeAdmobFramework",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:20NativeAdmobFramework05UnityA2AdC",
+        "mangledName": "$s20NativeAdmobFramework05UnityA2AdC",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UnityNativeBanner",
+        "printedName": "UnityNativeBanner",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "setupNativeKey",
+            "printedName": "setupNativeKey(viewController:nativeKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA6BannerC05setupA3Key14viewController06nativeG0ySo06UIViewI0C_SStF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA6BannerC05setupA3Key14viewController06nativeG0ySo06UIViewI0C_SStF",
+            "moduleName": "NativeAdmobFramework",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadNativeBanner",
+            "printedName": "loadNativeBanner(listenerGameObject:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA6BannerC04loadaE018listenerGameObjectySS_tF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA6BannerC04loadaE018listenerGameObjectySS_tF",
+            "moduleName": "NativeAdmobFramework",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "showNativeBanner",
+            "printedName": "showNativeBanner(listenerGameObject:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA6BannerC04showaE018listenerGameObjectySS_tF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA6BannerC04showaE018listenerGameObjectySS_tF",
+            "moduleName": "NativeAdmobFramework",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnityNativeBanner",
+                "printedName": "NativeAdmobFramework.UnityNativeBanner",
+                "usr": "s:20NativeAdmobFramework05UnityA6BannerC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:20NativeAdmobFramework05UnityA6BannerCACycfc",
+            "mangledName": "$s20NativeAdmobFramework05UnityA6BannerCACycfc",
+            "moduleName": "NativeAdmobFramework",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:20NativeAdmobFramework05UnityA6BannerC",
+        "mangledName": "$s20NativeAdmobFramework05UnityA6BannerC",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "superclassUsr": "s:20NativeAdmobFramework05UnityA2AdC",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "NativeAdmobFramework.UnityNativeAd"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UnityNativeCollapse",
+        "printedName": "UnityNativeCollapse",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "setupNativeKey",
+            "printedName": "setupNativeKey(viewController:nativeKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA8CollapseC05setupA3Key14viewController06nativeG0ySo06UIViewI0C_SStF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA8CollapseC05setupA3Key14viewController06nativeG0ySo06UIViewI0C_SStF",
+            "moduleName": "NativeAdmobFramework",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadCollapse",
+            "printedName": "loadCollapse(listenerGameObject:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA8CollapseC04loadE018listenerGameObjectySS_tF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA8CollapseC04loadE018listenerGameObjectySS_tF",
+            "moduleName": "NativeAdmobFramework",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setAutoShow",
+            "printedName": "setAutoShow(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA8CollapseC11setAutoShowyySbF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA8CollapseC11setAutoShowyySbF",
+            "moduleName": "NativeAdmobFramework",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnityNativeCollapse",
+                "printedName": "NativeAdmobFramework.UnityNativeCollapse",
+                "usr": "s:20NativeAdmobFramework05UnityA8CollapseC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:20NativeAdmobFramework05UnityA8CollapseCACycfc",
+            "mangledName": "$s20NativeAdmobFramework05UnityA8CollapseCACycfc",
+            "moduleName": "NativeAdmobFramework",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:20NativeAdmobFramework05UnityA8CollapseC",
+        "mangledName": "$s20NativeAdmobFramework05UnityA8CollapseC",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "superclassUsr": "s:20NativeAdmobFramework05UnityA2AdC",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "NativeAdmobFramework.UnityNativeAd"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UnityNativeFull",
+        "printedName": "UnityNativeFull",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "setupNativeKey",
+            "printedName": "setupNativeKey(viewController:nativeKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA4FullC05setupA3Key14viewController06nativeG0ySo06UIViewI0C_SStF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA4FullC05setupA3Key14viewController06nativeG0ySo06UIViewI0C_SStF",
+            "moduleName": "NativeAdmobFramework",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadNativeFull",
+            "printedName": "loadNativeFull(listenerGameObject:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20NativeAdmobFramework05UnityA4FullC04loadaE018listenerGameObjectySS_tF",
+            "mangledName": "$s20NativeAdmobFramework05UnityA4FullC04loadaE018listenerGameObjectySS_tF",
+            "moduleName": "NativeAdmobFramework",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UnityNativeFull",
+                "printedName": "NativeAdmobFramework.UnityNativeFull",
+                "usr": "s:20NativeAdmobFramework05UnityA4FullC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:20NativeAdmobFramework05UnityA4FullCACycfc",
+            "mangledName": "$s20NativeAdmobFramework05UnityA4FullCACycfc",
+            "moduleName": "NativeAdmobFramework",
+            "overriding": true,
+            "implicit": true,
+            "declAttributes": [
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:20NativeAdmobFramework05UnityA4FullC",
+        "mangledName": "$s20NativeAdmobFramework05UnityA4FullC",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "superclassUsr": "s:20NativeAdmobFramework05UnityA2AdC",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "NativeAdmobFramework.UnityNativeAd"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "GoogleMobileAds",
+        "printedName": "GoogleMobileAds",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      },
+      {
+        "kind": "Import",
+        "name": "DeveloperToolsSupport",
+        "printedName": "DeveloperToolsSupport",
+        "declKind": "Import",
+        "moduleName": "NativeAdmobFramework"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/core\/NativeAdEcpm.swift",
+      "kind": "StringLiteral",
+      "offset": 145,
+      "length": 21,
+      "value": "\"haudau NativeAdEcpm\""
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/core\/NativeAdEcpm.swift",
+      "kind": "StringLiteral",
+      "offset": 276,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/native_ad\/UnityNativeAd.swift",
+      "kind": "StringLiteral",
+      "offset": 176,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/native_ad\/UnityNativeBanner.swift",
+      "kind": "StringLiteral",
+      "offset": 235,
+      "length": 19,
+      "value": "\"UnityNativeBanner\""
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/native_ad\/UnityNativeBanner.swift",
+      "kind": "StringLiteral",
+      "offset": 306,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/native_ad\/UnityNativeCollapse.swift",
+      "kind": "StringLiteral",
+      "offset": 153,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/native_ad\/UnityNativeCollapse.swift",
+      "kind": "BooleanLiteral",
+      "offset": 194,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/native_ad\/UnityNativeCollapse.swift",
+      "kind": "BooleanLiteral",
+      "offset": 236,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/native_ad\/UnityNativeFull.swift",
+      "kind": "StringLiteral",
+      "offset": 233,
+      "length": 17,
+      "value": "\"UnityNativeFull\""
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/native_ad\/UnityNativeFull.swift",
+      "kind": "StringLiteral",
+      "offset": 302,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/ui\/AdmobNativeCollapseView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 668,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Volumes\/Work\/ProjectDemo\/NativeAdmobFramework\/NativeAdmobFramework\/ui\/AdmobNativeCollapseView2.swift",
+      "kind": "BooleanLiteral",
+      "offset": 242,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Volumes\/Kun_EX\/dinhtrunghau_ex\/XcodeDerivedData\/NativeAdmobFramework-hbdcwlgfdgbvrcdqqptmujyxzrxt\/Build\/Intermediates.noindex\/ArchiveIntermediates\/NativeAdmobFramework\/IntermediateBuildFilesPath\/NativeAdmobFramework.build\/Release-iphonesimulator\/NativeAdmobFramework.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 686,
+      "length": 15,
+      "value": "\"ButtonAdColor\""
+    },
+    {
+      "filePath": "\/Volumes\/Kun_EX\/dinhtrunghau_ex\/XcodeDerivedData\/NativeAdmobFramework-hbdcwlgfdgbvrcdqqptmujyxzrxt\/Build\/Intermediates.noindex\/ArchiveIntermediates\/NativeAdmobFramework\/IntermediateBuildFilesPath\/NativeAdmobFramework.build\/Release-iphonesimulator\/NativeAdmobFramework.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 998,
+      "length": 15,
+      "value": "\"ic_arrow_down\""
+    },
+    {
+      "filePath": "\/Volumes\/Kun_EX\/dinhtrunghau_ex\/XcodeDerivedData\/NativeAdmobFramework-hbdcwlgfdgbvrcdqqptmujyxzrxt\/Build\/Intermediates.noindex\/ArchiveIntermediates\/NativeAdmobFramework\/IntermediateBuildFilesPath\/NativeAdmobFramework.build\/Release-iphonesimulator\/NativeAdmobFramework.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1161,
+      "length": 11,
+      "value": "\"stars_3_5\""
+    },
+    {
+      "filePath": "\/Volumes\/Kun_EX\/dinhtrunghau_ex\/XcodeDerivedData\/NativeAdmobFramework-hbdcwlgfdgbvrcdqqptmujyxzrxt\/Build\/Intermediates.noindex\/ArchiveIntermediates\/NativeAdmobFramework\/IntermediateBuildFilesPath\/NativeAdmobFramework.build\/Release-iphonesimulator\/NativeAdmobFramework.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1317,
+      "length": 9,
+      "value": "\"stars_4\""
+    },
+    {
+      "filePath": "\/Volumes\/Kun_EX\/dinhtrunghau_ex\/XcodeDerivedData\/NativeAdmobFramework-hbdcwlgfdgbvrcdqqptmujyxzrxt\/Build\/Intermediates.noindex\/ArchiveIntermediates\/NativeAdmobFramework\/IntermediateBuildFilesPath\/NativeAdmobFramework.build\/Release-iphonesimulator\/NativeAdmobFramework.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1474,
+      "length": 11,
+      "value": "\"stars_4_5\""
+    },
+    {
+      "filePath": "\/Volumes\/Kun_EX\/dinhtrunghau_ex\/XcodeDerivedData\/NativeAdmobFramework-hbdcwlgfdgbvrcdqqptmujyxzrxt\/Build\/Intermediates.noindex\/ArchiveIntermediates\/NativeAdmobFramework\/IntermediateBuildFilesPath\/NativeAdmobFramework.build\/Release-iphonesimulator\/NativeAdmobFramework.build\/DerivedSources\/GeneratedAssetSymbols.swift",
+      "kind": "StringLiteral",
+      "offset": 1630,
+      "length": 9,
+      "value": "\"stars_5\""
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="CmS-TO-bj8" customClass="GADNativeAdView">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my_lib_icon_default" translatesAutoresizingMaskIntoConstraints="NO" id="Go2-ap-eiX">
+                    <rect key="frame" x="6" y="214" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="UUN-XN-gQZ"/>
+                        <constraint firstAttribute="width" constant="35" id="mCG-Nd-SlB"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Body that is really really long and can take up to two lines or sometimes even more." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-9n-gnL">
+                    <rect key="frame" x="47" y="236.66666666666666" width="340" height="14.333333333333343"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" text="Headline" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6by-gk-QCH">
+                    <rect key="frame" x="78" y="214" width="309" height="22"/>
+                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="avy-ZI-Tgz" customClass="GADMediaView">
+                    <rect key="frame" x="6" y="0.0" width="381" height="210"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="H74-RO-TNX"/>
+                        <constraint firstAttribute="height" constant="210" id="Sdq-C9-srN"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sed-GL-mh8">
+                    <rect key="frame" x="47" y="217.66666666666666" width="25" height="15"/>
+                    <color key="backgroundColor" name="ButtonAdColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="7UA-DD-4T7"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="hn7-Oq-OWp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xct-AW-IOX">
+                    <rect key="frame" x="6" y="253" width="381" height="40"/>
+                    <color key="backgroundColor" name="ButtonAdColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="hPN-QT-1pQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="15"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Install">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="PcI-1Y-vol"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Xct-AW-IOX" firstAttribute="leading" secondItem="PcI-1Y-vol" secondAttribute="leading" constant="6" id="0GV-oC-7xL"/>
+                <constraint firstItem="6by-gk-QCH" firstAttribute="centerY" secondItem="sed-GL-mh8" secondAttribute="centerY" id="6Wf-Y1-WQn"/>
+                <constraint firstItem="PcI-1Y-vol" firstAttribute="trailing" secondItem="Xct-AW-IOX" secondAttribute="trailing" constant="6" id="7pc-Gu-DnG"/>
+                <constraint firstItem="Go2-ap-eiX" firstAttribute="top" secondItem="avy-ZI-Tgz" secondAttribute="bottom" constant="4" id="BdR-sh-mwS"/>
+                <constraint firstItem="avy-ZI-Tgz" firstAttribute="leading" secondItem="PcI-1Y-vol" secondAttribute="leading" constant="6" id="Bp8-HX-DDt"/>
+                <constraint firstItem="Xct-AW-IOX" firstAttribute="top" secondItem="Go2-ap-eiX" secondAttribute="bottom" constant="4" id="ChI-jV-8ka"/>
+                <constraint firstItem="Go2-ap-eiX" firstAttribute="leading" secondItem="CmS-TO-bj8" secondAttribute="leading" constant="6" id="DEZ-gp-UuS"/>
+                <constraint firstItem="h7Z-9n-gnL" firstAttribute="leading" secondItem="Go2-ap-eiX" secondAttribute="trailing" constant="6" id="F1o-Hz-Wz2"/>
+                <constraint firstItem="sed-GL-mh8" firstAttribute="leading" secondItem="Go2-ap-eiX" secondAttribute="trailing" constant="6" id="JZ7-dR-Cz4"/>
+                <constraint firstItem="h7Z-9n-gnL" firstAttribute="top" secondItem="sed-GL-mh8" secondAttribute="bottom" constant="4" id="LpD-ds-gZC"/>
+                <constraint firstAttribute="trailing" secondItem="6by-gk-QCH" secondAttribute="trailing" constant="6" id="Uni-r4-gFk"/>
+                <constraint firstItem="PcI-1Y-vol" firstAttribute="trailing" secondItem="avy-ZI-Tgz" secondAttribute="trailing" constant="6" id="bTd-YT-6G7"/>
+                <constraint firstItem="6by-gk-QCH" firstAttribute="top" secondItem="Go2-ap-eiX" secondAttribute="top" id="ujK-Ov-oK7"/>
+                <constraint firstItem="avy-ZI-Tgz" firstAttribute="top" secondItem="CmS-TO-bj8" secondAttribute="top" id="vg0-Ju-wbW"/>
+                <constraint firstItem="6by-gk-QCH" firstAttribute="leading" secondItem="sed-GL-mh8" secondAttribute="trailing" constant="6" id="xc8-rX-o4F"/>
+                <constraint firstAttribute="trailing" secondItem="h7Z-9n-gnL" secondAttribute="trailing" constant="6" id="yXA-yg-mTC"/>
+                <constraint firstItem="avy-ZI-Tgz" firstAttribute="centerX" secondItem="PcI-1Y-vol" secondAttribute="centerX" id="yc4-nn-6yx"/>
+            </constraints>
+            <connections>
+                <outlet property="bodyView" destination="h7Z-9n-gnL" id="a8S-Ym-mKO"/>
+                <outlet property="callToActionView" destination="Xct-AW-IOX" id="ygC-Ws-kM8"/>
+                <outlet property="headlineView" destination="6by-gk-QCH" id="ouS-ud-Ml2"/>
+                <outlet property="iconView" destination="Go2-ap-eiX" id="x1x-64-rWX"/>
+                <outlet property="mediaView" destination="avy-ZI-Tgz" id="qKf-dR-Vl3"/>
+            </connections>
+            <point key="canvasLocation" x="13.125" y="-7.394366197183099"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="my_lib_icon_default" width="200" height="200"/>
+        <namedColor name="ButtonAdColor">
+            <color red="1" green="0.61568627450980395" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
