@@ -5,7 +5,7 @@ class NativeBannerContentView: UIView {
     //    private let nativeAd: GADNativeAd
     private var isAdLoaded: Bool = false
     private var admodNativeBannerListener: AdmobNativeBannerListener?
-    private var nativeAdView: NativeAdView!
+    private var nativeAdView: GADNativeAdView!
     
     private var closeButton: UIButton!
     
@@ -21,7 +21,7 @@ class NativeBannerContentView: UIView {
     
     private func setupView() {
         // Load the ad view from the nib
-        nativeAdView = Bundle.main.loadNibNamed("NativeBannerAdView", owner: nil, options: nil)?.first as? NativeAdView
+        nativeAdView = Bundle.main.loadNibNamed("NativeBannerAdView", owner: nil, options: nil)?.first as? GADNativeAdView
         nativeAdView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(nativeAdView)
         
@@ -50,7 +50,7 @@ class NativeBannerContentView: UIView {
         return isAdLoaded
     }
     
-    func fillData(nativeAd: NativeAd) {
+    func fillData(nativeAd: GADNativeAd) {
         
         (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
         (nativeAdView.bodyView as? UILabel)?.text = nativeAd.body

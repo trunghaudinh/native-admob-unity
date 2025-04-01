@@ -1,14 +1,14 @@
 import GoogleMobileAds
 
-public class NativeAdListenerWrapper: NSObject, NativeAdLoaderDelegate {
-    let onLoadSuccess: (NativeAd) -> Void
+public class NativeAdListenerWrapper: NSObject, GADNativeAdLoaderDelegate {
+    let onLoadSuccess: (GADNativeAd) -> Void
     let onLoadFail: (Error) -> Void
     let onAdLoading: () -> Void
     let onAdShow: () -> Void
     let onAdClicked: () -> Void
     let onAdPaidEvent: (NSDecimalNumber, String) -> Void
     
-    public init(onLoadSuccess: @escaping (NativeAd) -> Void,
+    public init(onLoadSuccess: @escaping (GADNativeAd) -> Void,
                 onLoadFail: @escaping (Error) -> Void,
                 onAdLoading: @escaping () -> Void,
                 onAdShow: @escaping () -> Void,
@@ -22,11 +22,11 @@ public class NativeAdListenerWrapper: NSObject, NativeAdLoaderDelegate {
         self.onAdPaidEvent = onAdPaidEvent
     }
     
-    public func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
+    public func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
         onLoadSuccess(nativeAd)
     }
     
-    public func adLoader(_ adLoader: AdLoader, didFailToReceiveAdWithError error: Error) {
+    public func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
         onLoadFail(error)
     }
 }

@@ -20,7 +20,7 @@ class UnityNativeCollapse: UnityNativeAd {
     
     private var nativeCollapseView : NativeCollapseContentView!
     
-    var onAdLoaded: ((NativeAd) -> Void)?
+    var onAdLoaded: ((GADNativeAd) -> Void)?
     
     private weak var viewController: UIViewController?
     

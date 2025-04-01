@@ -4,7 +4,7 @@ import GoogleMobileAds
 class NativeFullContentView: UIView {
     private var isAdLoaded: Bool = false
     private var admodNativeFullScreenListener: AdmobNativeFullScreenListener?
-    private var nativeAdView: NativeAdView!
+    private var nativeAdView: GADNativeAdView!
     
     private var closeButton: UIButton!
     private var countdownTimer: Timer?
@@ -21,7 +21,7 @@ class NativeFullContentView: UIView {
 
     private func setupView() {
         // Load the ad view from the nib
-        nativeAdView = Bundle.main.loadNibNamed("NativeFullAdView", owner: nil, options: nil)?.first as? NativeAdView
+        nativeAdView = Bundle.main.loadNibNamed("NativeFullAdView", owner: nil, options: nil)?.first as? GADNativeAdView
         nativeAdView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(nativeAdView)
         
@@ -92,7 +92,7 @@ class NativeFullContentView: UIView {
         return isAdLoaded
     }
 
-    func fillData(nativeAd: NativeAd) {
+    func fillData(nativeAd: GADNativeAd) {
         startCountdown()
         (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
         (nativeAdView.bodyView as? UILabel)?.text = nativeAd.body

@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2795ED492D5F4053008B1D10 /* UserMessagingPlatform.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2795ED472D5F4053008B1D10 /* UserMessagingPlatform.xcframework */; };
-		2795ED4A2D5F4053008B1D10 /* UserMessagingPlatform.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2795ED472D5F4053008B1D10 /* UserMessagingPlatform.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2795ED4B2D5F4053008B1D10 /* GoogleMobileAds.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2795ED482D5F4053008B1D10 /* GoogleMobileAds.xcframework */; };
-		2795ED4C2D5F4053008B1D10 /* GoogleMobileAds.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2795ED482D5F4053008B1D10 /* GoogleMobileAds.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2750A8F42D9BDAAE0017B44C /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 2750A8F32D9BDAAE0017B44C /* GoogleMobileAds */; };
 		2795EDB72D5F4E20008B1D10 /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2795EDB62D5F4E20008B1D10 /* UnityFramework.framework */; };
 		2795EDB82D5F4E20008B1D10 /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2795EDB62D5F4E20008B1D10 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -22,8 +19,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2795ED4A2D5F4053008B1D10 /* UserMessagingPlatform.xcframework in Embed Frameworks */,
-				2795ED4C2D5F4053008B1D10 /* GoogleMobileAds.xcframework in Embed Frameworks */,
 				2795EDB82D5F4E20008B1D10 /* UnityFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -33,8 +28,6 @@
 
 /* Begin PBXFileReference section */
 		274B29A92D5F031B00671026 /* NativeAdmobFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NativeAdmobFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2795ED472D5F4053008B1D10 /* UserMessagingPlatform.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = UserMessagingPlatform.xcframework; path = "../GoogleMobileAdsSdkiOS-12.0.0/UserMessagingPlatform.xcframework"; sourceTree = "<group>"; };
-		2795ED482D5F4053008B1D10 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:EQHXZ8M8AV:Google LLC"; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "../GoogleMobileAdsSdkiOS-12.0.0/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		2795EDB62D5F4E20008B1D10 /* UnityFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UnityFramework.framework; path = ../UnityFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,8 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2795ED492D5F4053008B1D10 /* UserMessagingPlatform.xcframework in Frameworks */,
-				2795ED4B2D5F4053008B1D10 /* GoogleMobileAds.xcframework in Frameworks */,
+				2750A8F42D9BDAAE0017B44C /* GoogleMobileAds in Frameworks */,
 				2795EDB72D5F4E20008B1D10 /* UnityFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,8 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				2795EDB62D5F4E20008B1D10 /* UnityFramework.framework */,
-				2795ED482D5F4053008B1D10 /* GoogleMobileAds.xcframework */,
-				2795ED472D5F4053008B1D10 /* UserMessagingPlatform.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,6 +122,7 @@
 			);
 			name = NativeAdmobFramework;
 			packageProductDependencies = (
+				2750A8F32D9BDAAE0017B44C /* GoogleMobileAds */,
 			);
 			productName = NativeAdmobFramework;
 			productReference = 274B29A92D5F031B00671026 /* NativeAdmobFramework.framework */;
@@ -161,6 +152,7 @@
 			mainGroup = 274B299F2D5F031B00671026;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				2750A8F22D9BDAAE0017B44C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 274B29AA2D5F031B00671026 /* Products */;
@@ -423,6 +415,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2750A8F22D9BDAAE0017B44C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = exactVersion;
+				version = 11.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2750A8F32D9BDAAE0017B44C /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2750A8F22D9BDAAE0017B44C /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 274B29A02D5F031B00671026 /* Project object */;
 }

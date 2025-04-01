@@ -10,11 +10,11 @@ import Combine
 import GoogleMobileAds
 
 class NativeAdmobViewModel: ObservableObject {
-    @Published var nativeAd: NativeAd?
+    @Published var nativeAd: GADNativeAd?
     init() {
         print("haudau ViewModel init: \(Unmanaged.passUnretained(self).toOpaque())")
     }
-    func updateAd(nativeAd: NativeAd) {
+    func updateAd(nativeAd: GADNativeAd) {
         self.nativeAd = nativeAd
         print("haudau NativeAdmobViewModel update \(nativeAd)")
     }

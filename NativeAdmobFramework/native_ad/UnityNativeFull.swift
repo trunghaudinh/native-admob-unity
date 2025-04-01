@@ -31,7 +31,7 @@ class UnityNativeFull: UnityNativeAd {
     
     private var nativeFullAdView : NativeFullContentView!
     
-    var onAdLoaded: ((NativeAd) -> Void)?
+    var onAdLoaded: ((GADNativeAd) -> Void)?
     
     override func setupNativeKey(viewController: UIViewController, nativeKey: String) {
         super.setupNativeKey(viewController: viewController, nativeKey: nativeKey)

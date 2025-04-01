@@ -35,7 +35,7 @@ class UnityNativeBanner: UnityNativeAd {
     
     
     
-    var onAdLoaded: ((NativeAd) -> Void)?
+    var onAdLoaded: ((GADNativeAd) -> Void)?
     
 
     override func setupNativeKey(viewController: UIViewController, nativeKey: String) {

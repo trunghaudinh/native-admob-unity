@@ -1,15 +1,15 @@
 import GoogleMobileAds
 import Foundation
 
-class NativeAdEcpm: NSObject, ObservableObject, NativeAdLoaderDelegate {
+class NativeAdEcpm: NSObject, ObservableObject, GADNativeAdLoaderDelegate {
     private var tag: String = "haudau NativeAdEcpm"
-    @Published var nativeAd: NativeAd?
-    private var adLoader: AdLoader!
+    @Published var nativeAd: GADNativeAd?
+    private var adLoader: GADAdLoader!
     private var adUnit: String! = ""
-    private var videoOptions: VideoOptions!
-    private var nativeAdViewOptions: NativeAdViewAdOptions!
-    private var multipleImageOptions: NativeAdImageAdLoaderOptions!
-    private var mediaOptions: NativeAdMediaAdLoaderOptions!
+    private var videoOptions: GADVideoOptions!
+    private var nativeAdViewOptions: GADNativeAdViewAdOptions!
+    private var multipleImageOptions: GADNativeAdImageAdLoaderOptions!
+    private var mediaOptions: GADNativeAdMediaAdLoaderOptions!
     
     var listener: NativeAdListenerWrapper? // Weak reference to prevent retain cycle
     
@@ -21,23 +21,23 @@ class NativeAdEcpm: NSObject, ObservableObject, NativeAdLoaderDelegate {
     
     func setupNativeOptions() {
         
-        videoOptions = VideoOptions()
-        videoOptions.shouldStartMuted = true
+        videoOptions = GADVideoOptions()
+        videoOptions.startMuted = true
         
-        nativeAdViewOptions = NativeAdViewAdOptions()
+        nativeAdViewOptions = GADNativeAdViewAdOptions()
         nativeAdViewOptions.preferredAdChoicesPosition = .bottomLeftCorner
         
-        multipleImageOptions = NativeAdImageAdLoaderOptions()
+        multipleImageOptions = GADNativeAdImageAdLoaderOptions()
         multipleImageOptions.shouldRequestMultipleImages = true
         
-        mediaOptions = NativeAdMediaAdLoaderOptions()
-        mediaOptions.mediaAspectRatio = MediaAspectRatio.any
+        mediaOptions = GADNativeAdMediaAdLoaderOptions()
+        mediaOptions.mediaAspectRatio = GADMediaAspectRatio.any
     }
     
     func loadAd() {
         print("haudau NativeAdEcpm LoadAd \(adUnit) | \(listener == nil)")
         listener?.onAdLoading() // Notify listener that ad is loading
-        adLoader = AdLoader(
+        adLoader = GADAdLoader(
             adUnitID: adUnit,
             rootViewController: nil,
             adTypes: [.native],
@@ -49,10 +49,10 @@ class NativeAdEcpm: NSObject, ObservableObject, NativeAdLoaderDelegate {
             ]
         )
         adLoader.delegate = self
-        adLoader.load(Request())
+        adLoader.load(GADRequest())
     }
     
-    func adLoader(_ adLoader: AdLoader, didReceive nativeAd: NativeAd) {
+    func adLoader(_ adLoader: GADAdLoader, didReceive nativeAd: GADNativeAd) {
         self.nativeAd = nativeAd
         print("haudau NativeAdEcpm success nativeAd = \(nativeAd)")
         nativeAd.delegate = self
@@ -60,7 +60,7 @@ class NativeAdEcpm: NSObject, ObservableObject, NativeAdLoaderDelegate {
         
     }
     
-    func adLoader(_ adLoader: AdLoader, didFailToReceiveAdWithError error: Error) {
+    func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
         print("haudau NativeAdEcpm failed with error: \(error.localizedDescription)")
         listener?.onLoadFail(error) // Notify listener of failure
     }
@@ -72,29 +72,29 @@ class NativeAdEcpm: NSObject, ObservableObject, NativeAdLoaderDelegate {
   
 }
 
-extension NativeAdEcpm: NativeAdDelegate {
-    func nativeAdDidRecordClick(_ nativeAd: NativeAd) {
+extension NativeAdEcpm: GADNativeAdDelegate {
+    func nativeAdDidRecordClick(_ nativeAd: GADNativeAd) {
         print("\(tag) \(#function) called")
         listener?.onAdClicked() // Notify listener of ad click
     }
     
-    func nativeAdDidRecordImpression(_ nativeAd: NativeAd) {
+    func nativeAdDidRecordImpression(_ nativeAd: GADNativeAd) {
         print("\(tag) \(#function) called")
     }
     
-    func nativeAdWillPresentScreen(_ nativeAd: NativeAd) {
+    func nativeAdWillPresentScreen(_ nativeAd: GADNativeAd) {
         print("\(tag) \(#function) called")
     }
     
-    func nativeAdDidDismissScreen(_ nativeAd: NativeAd) {
+    func nativeAdDidDismissScreen(_ nativeAd: GADNativeAd) {
         print("\(tag) \(#function) called")
     }
     
-    func nativeAdWillDismissScreen(_ nativeAd: NativeAd) {
+    func nativeAdWillDismissScreen(_ nativeAd: GADNativeAd) {
         print("\(tag) \(#function) called")
     }
     
-    func nativeAdDidRecord(_ nativeAd: NativeAd, didRecord adValue: AdValue) {
+    func nativeAdDidRecord(_ nativeAd: GADNativeAd, didRecord adValue: GADAdValue) {
         listener?.onAdPaidEvent(adValue.value,adValue.currencyCode) // Notify listener of paid event
     }
 }

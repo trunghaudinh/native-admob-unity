@@ -5,7 +5,7 @@ class NativeCollapseContentView: UIView {
     //    private let nativeAd: GADNativeAd
     private var isAdLoaded: Bool = false
     private var admodNativeCollapseListener: AdmobNativeCollapseListener?
-    private var nativeAdView: NativeAdView!
+    private var nativeAdView: GADNativeAdView!
     
     private var closeButton: UIButton!
     
@@ -21,7 +21,7 @@ class NativeCollapseContentView: UIView {
     
     private func setupView() {
         // Load the ad view from the nib
-        nativeAdView = Bundle.main.loadNibNamed("NativeCollapseAdView", owner: nil, options: nil)?.first as? NativeAdView
+        nativeAdView = Bundle.main.loadNibNamed("NativeCollapseAdView", owner: nil, options: nil)?.first as? GADNativeAdView
         nativeAdView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(nativeAdView)
         
@@ -93,7 +93,7 @@ class NativeCollapseContentView: UIView {
         return isAdLoaded
     }
     
-    func fillData(nativeAd: NativeAd) {
+    func fillData(nativeAd: GADNativeAd) {
         
         (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
         (nativeAdView.bodyView as? UILabel)?.text = nativeAd.body
