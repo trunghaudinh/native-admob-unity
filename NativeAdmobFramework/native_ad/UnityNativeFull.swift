@@ -25,7 +25,7 @@ class UnityNativeFull: UnityNativeAd {
     private var mListenerGameObject: String = ""
     
     
-    private weak var viewController: UIViewController?
+
     
     private var nativeViewModel = NativeAdmobViewModel()
     
@@ -33,10 +33,9 @@ class UnityNativeFull: UnityNativeAd {
     
     var onAdLoaded: ((NativeAd) -> Void)?
     
-    override func setupNativeKey(viewController: UIViewController, nativeKey: String) {
-        super.setupNativeKey(viewController: viewController, nativeKey: nativeKey)
+    override func setupNativeKey(nativeKey: String) {
+        super.setupNativeKey(nativeKey: nativeKey)
         
-        self.viewController = viewController
         
         nativeFullAdView = NativeFullContentView()
     }
@@ -87,7 +86,7 @@ class UnityNativeFull: UnityNativeAd {
             print("haudau showNativeFull: ViewModel instance = \(Unmanaged.passUnretained(self.nativeViewModel).toOpaque())")
             print("haudau showNativeFull: nativeAd111 = \(String(describing: self.nativeViewModel.nativeAd))")
             
-            guard let viewController = self.viewController else {
+            guard let viewController = self.uiViewController else {
                 print("ViewController is not set")
                 return
             }
@@ -101,8 +100,17 @@ class UnityNativeFull: UnityNativeAd {
             
             let listener = AdmobNativeFullScreenListener(
                 onAdClosed: {
-                    self.destroyNativeAd()
-                    self.sendUnityEvent(gameObject: listenerGameObject, methodName:"onAdClosed", message: "")
+                           self.nativeViewModel.updateAd(nativeAd: nil)
+                           self.destroyNativeAd()
+                           
+                           if let viewController = self.uiViewController {
+                               viewController.dismiss(animated: true)
+                           }
+                           
+                           self.nativeFullAdView?.removeFromSuperview()
+                           self.nativeFullAdView = nil
+                           
+                           self.sendUnityEvent(gameObject: listenerGameObject, methodName:"onAdClosed", message: "")
                     
                 },
                 onAdShowFailed: {

@@ -37,7 +37,7 @@ class NativeFullContentView: UIView {
         closeButton.setTitle("\(countdownValue)", for: .normal)
         closeButton.setTitleColor(.white, for: .normal)
         closeButton.backgroundColor = .gray
-        closeButton.layer.cornerRadius = 18
+        closeButton.layer.cornerRadius = 13
         closeButton.clipsToBounds = true
         closeButton.translatesAutoresizingMaskIntoConstraints = false // Use Auto Layout
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
@@ -47,9 +47,9 @@ class NativeFullContentView: UIView {
         nativeAdView.addSubview(closeButton)
 
         NSLayoutConstraint.activate([
-            closeButton.widthAnchor.constraint(equalToConstant: 36),
-            closeButton.heightAnchor.constraint(equalToConstant: 36),
-            closeButton.topAnchor.constraint(equalTo: nativeAdView.topAnchor, constant: 36), // 10px from top
+            closeButton.widthAnchor.constraint(equalToConstant:26),
+            closeButton.heightAnchor.constraint(equalToConstant: 26),
+            closeButton.topAnchor.constraint(equalTo: nativeAdView.topAnchor, constant: 50), // 10px from top
             closeButton.trailingAnchor.constraint(equalTo: nativeAdView.trailingAnchor, constant: -36) // 30px from right
         ])
     }
@@ -57,7 +57,12 @@ class NativeFullContentView: UIView {
     
     @objc private func closeButtonTapped() {
         print("Close button tapped")
+        // Hủy timer nếu đang chạy
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+        nativeAdView.nativeAd = nil
         admodNativeFullScreenListener?.onAdClosed()
+        self.removeFromSuperview()
     }
 
     private func startCountdown() {
@@ -71,12 +76,30 @@ class NativeFullContentView: UIView {
         } else {
             countdownTimer?.invalidate()
             countdownTimer = nil
-            closeButton.setTitle("", for: .normal)
-            if let image = UIImage(named: "ic_arrow_down") {
-                let tintedImage = image.withRenderingMode(.alwaysTemplate)
-                closeButton.setImage(tintedImage, for: .normal)
+
+            // Ẩn button
+            closeButton.isHidden = true
+
+            // Delay 500ms rồi mới hiện lại + đổi sang icon
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.closeButton.isHidden = false
+                self.closeButton.setTitle("", for: .normal)
+//                self.closeButton.tintColor = .white
+                if let originalImage = UIImage(named: "ic_close"){
+                    let resizedImage = self.resizeImage(image: originalImage, targetSize: CGSize(width: 13, height: 13))
+                    self.closeButton.setImage(resizedImage, for: .normal)
+            
+                }
+
+                self.closeButton.isUserInteractionEnabled = true
             }
-            closeButton.isUserInteractionEnabled = true
+        }
+    }
+    
+    private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        return renderer.image { _ in
+            image.draw(in: CGRect(origin: .zero, size: targetSize))
         }
     }
 

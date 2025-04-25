@@ -14,7 +14,7 @@ class NativeAdmobViewModel: ObservableObject {
     init() {
         print("haudau ViewModel init: \(Unmanaged.passUnretained(self).toOpaque())")
     }
-    func updateAd(nativeAd: NativeAd) {
+    func updateAd(nativeAd: NativeAd?) {
         self.nativeAd = nativeAd
         print("haudau NativeAdmobViewModel update \(nativeAd)")
     }

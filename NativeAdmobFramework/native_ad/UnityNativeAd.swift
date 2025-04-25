@@ -5,16 +5,17 @@ import UnityFramework
 public class UnityNativeAd {
     private var nativeAd: NativeAdEcpm?
     private var mKeyNativeAd: String = ""
-    private var uiViewController: UIViewController?
+    var uiViewController: UIViewController?
     public init() { }
-    public func setupNativeKey(viewController: UIViewController, nativeKey: String) {
-        self.uiViewController = viewController
+    func setupNativeKey( nativeKey: String) {
+        self.uiViewController = UIViewController()
         nativeAd = NativeAdEcpm(adUnit: nativeKey)
     }
     
     
-    public func loadNativeAd(listener : NativeAdListenerWrapper) {
+    func loadNativeAd(listener : NativeAdListenerWrapper) {
         print("haudau UnityNativeAd loadNativeAd listner = nil \(listener == nil)")
+        
         nativeAd?.listener = listener
         nativeAd?.loadAd()
     }
