@@ -7,16 +7,58 @@ class NativeFullContentView: UIView {
     private var nativeAdView: NativeAdView!
     
     private var closeButton: UIButton!
+    private var whiteCircle: UIView!
     private var countdownTimer: Timer?
     private var countdownValue: Int = 3
-
+    private var closeCTRSize: String = "normal"
+    
+    
     init() {
         super.init(frame: .zero)
         setupView()
     }
+    
+    func setCloseCTRSize(_ size: String) {
+        closeCTRSize = size
+        print("haudau setCloseCTRSize2222  \(closeCTRSize)")
+        updateCloseButtonSize()
+    }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func updateCloseButtonSize() {
+        let buttonSize = sizeForCloseButton()
+        print("haudau updateCloseButtonSize \(buttonSize)")
+
+        // Update lại constraints (xóa image cũ trước nếu cần)
+        NSLayoutConstraint.deactivate(closeButton.constraints)
+        NSLayoutConstraint.deactivate(whiteCircle.constraints)
+        
+        NSLayoutConstraint.activate([
+            whiteCircle.widthAnchor.constraint(equalToConstant: buttonSize),
+            whiteCircle.heightAnchor.constraint(equalToConstant: buttonSize),
+            closeButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            closeButton.heightAnchor.constraint(equalToConstant: buttonSize)
+        ])
+        
+        // Update corner radius
+        whiteCircle.layer.cornerRadius = buttonSize / 2
+        closeButton.layer.cornerRadius = buttonSize / 2
+
+        // Nếu đang là icon thì resize lại
+        if closeButton.title(for: .normal) == "" {
+            if let originalImage = UIImage(systemName: "xmark") {
+                let resizedImage = resizeImage(
+                    image: originalImage,
+                    targetSize: CGSize(width: buttonSize / 2, height: buttonSize / 2)
+                )
+                closeButton.setImage(resizedImage, for: .normal)
+            }
+        }
+        
+        layoutIfNeeded()
     }
 
     private func setupView() {
@@ -31,24 +73,43 @@ class NativeFullContentView: UIView {
             nativeAdView.topAnchor.constraint(equalTo: topAnchor),
             nativeAdView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        
+        let buttonSize = sizeForCloseButton()
+        // Tạo circle trắng
+        whiteCircle = UIView()
+        whiteCircle.backgroundColor = .white
+        whiteCircle.layer.cornerRadius = buttonSize / 2 // Bán kính = 26 / 2
+        whiteCircle.clipsToBounds = true
+        whiteCircle.translatesAutoresizingMaskIntoConstraints = false
+
+        // Add vào nativeAdView (phải add trước closeButton để whiteCircle nằm dưới)
+        nativeAdView.addSubview(whiteCircle)
+    
+        // Layout cho whiteCircle giống hệt closeButton
+        NSLayoutConstraint.activate([
+            whiteCircle.widthAnchor.constraint(equalToConstant: buttonSize),
+            whiteCircle.heightAnchor.constraint(equalToConstant: buttonSize),
+            whiteCircle.topAnchor.constraint(equalTo: nativeAdView.topAnchor, constant: 50),
+            whiteCircle.trailingAnchor.constraint(equalTo: nativeAdView.trailingAnchor, constant: -36)
+        ])
 
         // Create and configure the close button
         closeButton = UIButton(type: .custom)
         closeButton.setTitle("\(countdownValue)", for: .normal)
-        closeButton.setTitleColor(.white, for: .normal)
-        closeButton.backgroundColor = .gray
-        closeButton.layer.cornerRadius = 13
+        closeButton.setTitleColor(.black, for: .normal)
+        closeButton.backgroundColor = .clear
+        closeButton.layer.cornerRadius = buttonSize / 2
         closeButton.clipsToBounds = true
         closeButton.translatesAutoresizingMaskIntoConstraints = false // Use Auto Layout
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         closeButton.isUserInteractionEnabled = false
-
+        
 
         nativeAdView.addSubview(closeButton)
 
         NSLayoutConstraint.activate([
-            closeButton.widthAnchor.constraint(equalToConstant:26),
-            closeButton.heightAnchor.constraint(equalToConstant: 26),
+            closeButton.widthAnchor.constraint(equalToConstant: buttonSize),
+            closeButton.heightAnchor.constraint(equalToConstant: buttonSize),
             closeButton.topAnchor.constraint(equalTo: nativeAdView.topAnchor, constant: 50), // 10px from top
             closeButton.trailingAnchor.constraint(equalTo: nativeAdView.trailingAnchor, constant: -36) // 30px from right
         ])
@@ -70,6 +131,7 @@ class NativeFullContentView: UIView {
     }
 
     @objc private func updateCountdown() {
+        let buttonSize = sizeForCloseButton()
         if countdownValue > 1 {
             countdownValue -= 1
             closeButton.setTitle("\(countdownValue)", for: .normal)
@@ -77,18 +139,21 @@ class NativeFullContentView: UIView {
             countdownTimer?.invalidate()
             countdownTimer = nil
 
+            whiteCircle.isHidden = true
             // Ẩn button
             closeButton.isHidden = true
 
             // Delay 500ms rồi mới hiện lại + đổi sang icon
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.whiteCircle.isHidden = false
                 self.closeButton.isHidden = false
+                
                 self.closeButton.setTitle("", for: .normal)
-//                self.closeButton.tintColor = .white
-                if let originalImage = UIImage(named: "ic_close"){
-                    let resizedImage = self.resizeImage(image: originalImage, targetSize: CGSize(width: 13, height: 13))
+                self.closeButton.backgroundColor = .clear
+                if let originalImage = UIImage(systemName: "xmark") {
+                    let resizedImage = self.resizeImage(image: originalImage, targetSize: CGSize(width: buttonSize / 2, height: buttonSize / 2))
                     self.closeButton.setImage(resizedImage, for: .normal)
-            
+                    self.closeButton.tintColor = .white
                 }
 
                 self.closeButton.isUserInteractionEnabled = true
@@ -100,6 +165,21 @@ class NativeFullContentView: UIView {
         let renderer = UIGraphicsImageRenderer(size: targetSize)
         return renderer.image { _ in
             image.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
+    }
+    
+    private func sizeForCloseButton() -> CGFloat {
+        switch closeCTRSize {
+        case "tiny":
+            return 20
+        case "small":
+            return 26
+        case "normal":
+            return 32
+        case "large":
+            return 38
+        default:
+            return 32
         }
     }
 

@@ -21,10 +21,8 @@ class AdmobNativeFullScreenListener: AnyObject {
 class UnityNativeFull: UnityNativeAd {
     
     private var tag: String = "UnityNativeFull"
-    
     private var mListenerGameObject: String = ""
-    
-    
+    private var isAutoShow: Bool  = false
 
     
     private var nativeViewModel = NativeAdmobViewModel()
@@ -33,15 +31,28 @@ class UnityNativeFull: UnityNativeAd {
     
     var onAdLoaded: ((NativeAd) -> Void)?
     
-    override func setupNativeKey(nativeKey: String) {
-        super.setupNativeKey(nativeKey: nativeKey)
-        
-        
+    override func setupNativeKey( nativeKey: String) {
+        super.setupNativeKey( nativeKey: nativeKey)
         nativeFullAdView = NativeFullContentView()
     }
     
     func isNativeFullLoaded() -> Bool {
         return nativeViewModel.nativeAd != nil
+    }
+    
+    func setAutoShow(_ autoShow: Bool) {
+        isAutoShow = autoShow
+    }
+    
+    func setCloseCTRSize(_ size: String){
+        print("haudau setCloseCTRSize \(size)")
+        nativeFullAdView.setCloseCTRSize(size)
+
+    }
+    
+    func loadAndShowAds(listenerGameObject: String) {
+        isAutoShow = true
+        loadNativeFull(listenerGameObject: listenerGameObject)
     }
     
     
@@ -54,6 +65,10 @@ class UnityNativeFull: UnityNativeAd {
                 self.sendUnityEvent(gameObject: listenerGameObject, methodName: "onLoadSuccess", message: "")
                 self.onAdLoaded?(ad)
                 self.nativeViewModel.updateAd(nativeAd: ad) // Cập nhật quảng cáo vào viewModel
+                
+                if self.isAutoShow {
+                    self.showNativeFull(listenerGameObject: listenerGameObject)
+                }
                 
             },
             onLoadFail: { error in
@@ -97,6 +112,7 @@ class UnityNativeFull: UnityNativeAd {
                 return
             }
             
+            self.isAutoShow = false
             
             let listener = AdmobNativeFullScreenListener(
                 onAdClosed: {

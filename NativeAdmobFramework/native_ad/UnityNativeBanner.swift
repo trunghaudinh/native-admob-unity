@@ -25,8 +25,9 @@ class UnityNativeBanner: UnityNativeAd {
     private var mListenerGameObject: String = ""
     private var isAutoReload: Bool  = false
     private var isAutoShow: Bool  = false
+
     
-    private weak var viewController: UIViewController?
+
     
     private var nativeBannerView: NativeBannerContentView!
     
@@ -37,13 +38,25 @@ class UnityNativeBanner: UnityNativeAd {
     
     var onAdLoaded: ((NativeAd) -> Void)?
     
-
-    override func setupNativeKey(viewController: UIViewController, nativeKey: String) {
-        super.setupNativeKey(viewController: viewController, nativeKey: nativeKey)
-        self.viewController = viewController
+    func setAutoShow(_ autoShow: Bool) {
+        isAutoShow = autoShow
+    }
+    
+//    func setAutoReload(_ autoReload: Bool) {
+//        isAutoReload = autoReload
+//    }
+//
+    
+    
+    override func setupNativeKey(nativeKey: String) {
+        super.setupNativeKey(nativeKey: nativeKey)
         nativeBannerView = NativeBannerContentView()
     }
     
+    func loadAndShowAds(listenerGameObject: String) {
+        isAutoShow = true
+        loadNativeBanner(listenerGameObject: listenerGameObject)
+    }
     
     
     func loadNativeBanner(listenerGameObject: String) {
@@ -90,7 +103,7 @@ class UnityNativeBanner: UnityNativeAd {
             print("haudau showCollapse: ViewModel instance = \(Unmanaged.passUnretained(self.nativeViewModel).toOpaque())")
             print("haudau showCollapse: nativeAd111 = \(self.nativeViewModel.nativeAd)")
             
-            guard let viewController = self.viewController else {
+            guard let viewController = self.uiViewController else {
                 print("ViewController is not set")
                 return
             }
@@ -107,6 +120,8 @@ class UnityNativeBanner: UnityNativeAd {
                 }
             )
             
+            self.isAutoShow = false
+            
             self.nativeBannerView.fillData(nativeAd: nativeAd)
             self.nativeBannerView.setListener(listener: listener)
             
@@ -114,16 +129,16 @@ class UnityNativeBanner: UnityNativeAd {
             
             // Set constraints
             self.nativeBannerView.translatesAutoresizingMaskIntoConstraints = false
-            
+
             NSLayoutConstraint.activate([
                 self.nativeBannerView.leadingAnchor.constraint(equalTo: viewController.view.leadingAnchor),
                 self.nativeBannerView.trailingAnchor.constraint(equalTo: viewController.view.trailingAnchor),
-                self.nativeBannerView.heightAnchor.constraint(equalToConstant: 115),
-                self.nativeBannerView.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor)
+                self.nativeBannerView.heightAnchor.constraint(equalToConstant: 60),
+                self.nativeBannerView.bottomAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.bottomAnchor)
             ])
             
             
-            
+
             
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let window = windowScene.windows.first,
@@ -134,11 +149,4 @@ class UnityNativeBanner: UnityNativeAd {
         }
     }
     
-    func setAutoShow(_ autoShow: Bool) {
-        isAutoShow = autoShow
-    }
-    
-    func setAutoReload(_ reload: Bool) {
-        isAutoReload = reload
-    }
 }

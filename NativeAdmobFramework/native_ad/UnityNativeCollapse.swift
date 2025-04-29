@@ -22,13 +22,22 @@ class UnityNativeCollapse: UnityNativeAd {
     
     var onAdLoaded: ((NativeAd) -> Void)?
     
-    private weak var viewController: UIViewController?
+
     
-    override func setupNativeKey(viewController: UIViewController, nativeKey: String) {
-        super.setupNativeKey(viewController: viewController, nativeKey: nativeKey)
-        self.viewController = viewController
+    override func setupNativeKey( nativeKey: String) {
+        super.setupNativeKey(nativeKey: nativeKey)
         nativeCollapseView = NativeCollapseContentView()
     }
+    
+    func setAutoShow(_ autoShow: Bool) {
+        isAutoShow = autoShow
+    }
+    
+    func loadAndShowAds(listenerGameObject: String) {
+        isAutoShow = true
+        loadCollapse(listenerGameObject: listenerGameObject)
+    }
+    
     
     func loadCollapse(listenerGameObject: String) {
         mListenerGameObject = listenerGameObject
@@ -43,7 +52,7 @@ class UnityNativeCollapse: UnityNativeAd {
                 print("haudau loadNativeCollapse success \(ad)")
                 self.onAdLoaded?(ad)
                 self.nativeViewModel.updateAd(nativeAd: ad) // Cập nhật quảng cáo vào viewModel
-                
+            
                 if self.isAutoShow {
                     self.showCollapse(listenerGameObject: listenerGameObject)
                 }
@@ -70,7 +79,7 @@ class UnityNativeCollapse: UnityNativeAd {
             print("haudau showCollapse: ViewModel instance = \(Unmanaged.passUnretained(self.nativeViewModel).toOpaque())")
             print("haudau showCollapse: nativeAd111 = \(self.nativeViewModel.nativeAd)")
             
-            guard let viewController = self.viewController else {
+            guard let viewController = self.uiViewController else {
                 print("ViewController is not set")
                 return
             }
@@ -80,6 +89,8 @@ class UnityNativeCollapse: UnityNativeAd {
                 self.sendUnityEvent(gameObject: listenerGameObject, methodName:"onAdShowFailed", message: "")
                 return
             }
+            
+            self.isAutoShow = false
             
             let listener = AdmobNativeCollapseListener(
                 onMinimize: {
@@ -109,7 +120,6 @@ class UnityNativeCollapse: UnityNativeAd {
                 self.nativeCollapseView.bottomAnchor.constraint(equalTo: viewController.view.bottomAnchor)
             ])
             
-        
             
             if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                let window = windowScene.windows.first,
@@ -121,12 +131,9 @@ class UnityNativeCollapse: UnityNativeAd {
     }
     
     
+
     
-    func setAutoShow(_ autoShow: Bool) {
-        isAutoShow = autoShow
-    }
-    
-    func setAutoReload(_ reload: Bool) {
-        isAutoReload = reload
-    }
+//    func setAutoReload(_ reload: Bool) {
+//        isAutoReload = reload
+//    }
 }

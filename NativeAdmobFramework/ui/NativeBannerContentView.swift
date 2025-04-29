@@ -67,10 +67,29 @@ class NativeBannerContentView: UIView {
         nativeAdView.clipsToBounds = true
         
         (nativeAdView.iconView as? UIImageView)?.layer.cornerRadius = 8
-        
+        (nativeAdView.starRatingView as? UIImageView)?.image = imageOfStars(
+          from: nativeAd.starRating)
+        nativeAdView.starRatingView?.isHidden = nativeAd.starRating == nil
       
 
         nativeAdView.nativeAd = nativeAd
+    }
+    
+    func imageOfStars(from starRating: NSDecimalNumber?) -> UIImage? {
+        guard let rating = starRating?.doubleValue else {
+            return UIImage(named: "star_4")
+        }
+        if rating >= 5 {
+            return UIImage(named: "star_5")
+        } else if rating >= 4.5 {
+            return UIImage(named: "star_4_5")
+        } else if rating >= 4 {
+            return UIImage(named: "star_4")
+        } else if rating >= 3.5 {
+            return UIImage(named: "star_3_5")
+        } else {
+            return UIImage(named: "star_4")
+        }
     }
     
 }
