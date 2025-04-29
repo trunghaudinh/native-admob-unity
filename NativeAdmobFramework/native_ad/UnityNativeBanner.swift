@@ -23,9 +23,9 @@ class UnityNativeBanner: UnityNativeAd {
     private var tag: String = "UnityNativeBanner"
     
     private var mListenerGameObject: String = ""
-    private var isAutoReload: Bool  = false
+    private var isAutoReload: Bool  = true
     private var isAutoShow: Bool  = false
-
+    private var timeReload: Int  = 60
     
 
     
@@ -33,19 +33,35 @@ class UnityNativeBanner: UnityNativeAd {
     
     private var nativeViewModel = NativeAdmobViewModel()
     
-    
-    
-    
     var onAdLoaded: ((NativeAd) -> Void)?
     
     func setAutoShow(_ autoShow: Bool) {
         isAutoShow = autoShow
     }
     
-//    func setAutoReload(_ autoReload: Bool) {
-//        isAutoReload = autoReload
-//    }
-//
+    func setAutoReload(_ autoReload: Bool) {
+        isAutoReload = autoReload
+    }
+    
+    func setTimerReload(_ timeReload: Int) {
+        self.timeReload = timeReload
+    }
+    
+    func hideAds() {
+        guard let nativeBannerView = self.nativeBannerView else {
+            print("NativeBannerView is nil, cannot hide")
+            return
+        }
+        nativeBannerView.isHidden = true
+    }
+    
+    func showAds() {
+        guard let nativeBannerView = self.nativeBannerView else {
+            print("NativeBannerView is nil, cannot show")
+            return
+        }
+        nativeBannerView.isHidden = false
+    }
     
     
     override func setupNativeKey(nativeKey: String) {
@@ -54,6 +70,7 @@ class UnityNativeBanner: UnityNativeAd {
     }
     
     func loadAndShowAds(listenerGameObject: String) {
+        destroyNativeAd()
         isAutoShow = true
         loadNativeBanner(listenerGameObject: listenerGameObject)
     }
@@ -101,7 +118,7 @@ class UnityNativeBanner: UnityNativeAd {
     func showNativeBanner(listenerGameObject: String) {
         DispatchQueue.main.async {
             print("haudau showCollapse: ViewModel instance = \(Unmanaged.passUnretained(self.nativeViewModel).toOpaque())")
-            print("haudau showCollapse: nativeAd111 = \(self.nativeViewModel.nativeAd)")
+        
             
             guard let viewController = self.uiViewController else {
                 print("ViewController is not set")
@@ -120,7 +137,10 @@ class UnityNativeBanner: UnityNativeAd {
                 }
             )
             
-            self.isAutoShow = false
+            if self.isAutoReload {
+                        self.scheduleReload(listenerGameObject: listenerGameObject)
+                    }
+            
             
             self.nativeBannerView.fillData(nativeAd: nativeAd)
             self.nativeBannerView.setListener(listener: listener)
@@ -146,7 +166,23 @@ class UnityNativeBanner: UnityNativeAd {
                 viewController.modalPresentationStyle = .overCurrentContext
                 rootVC.present(viewController, animated: true)
             }
+            
+            
         }
+    }
+    
+    private func scheduleReload(listenerGameObject: String) {
+        let reloadTimeInterval = TimeInterval(self.timeReload)
+                DispatchQueue.main.asyncAfter(deadline: .now() + reloadTimeInterval) { [weak self] in
+                    guard let self = self else { return }
+                    guard let nativeBannerView = self.nativeBannerView, !nativeBannerView.isHidden else {
+                        print("haudau reload skipped: nativeBannerView is hidden or nil")
+                        return
+                    }
+                    print("haudau time to reload")
+                    self.destroyNativeAd()
+                    self.loadAndShowAds(listenerGameObject: listenerGameObject)
+                }
     }
     
 }
