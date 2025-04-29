@@ -12,6 +12,10 @@ class NativeFullContentView: UIView {
     private var countdownValue: Int = 3
     private var closeCTRSize: String = "normal"
     
+
+    var viewContent: UIView {
+        return nativeAdView.viewWithTag(999) ?? UIView()
+    }
     
     init() {
         super.init(frame: .zero)
@@ -234,6 +238,7 @@ class NativeFullContentView: UIView {
             heightConstraint.isActive = true
         }
 
+    
         nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
         nativeAdView.nativeAd = nativeAd
     }
@@ -264,5 +269,120 @@ class NativeFullContentView: UIView {
         UIGraphicsEndImageContext()
 
         return finalImage
+    }
+    
+    func setContentCTR(isAdsContentV1: Bool, isAdsContentV2: Bool, isAdsContentV3: Bool) {
+        // First, remove any existing CTR views if they exist
+        print("haudau123 setContentCTR2222 \(isAdsContentV1) \(isAdsContentV2) \(isAdsContentV3)")
+        
+        // Remove existing CTR views from the nativeAdView (not from viewContent)
+        nativeAdView.subviews.forEach { view in
+            if view.tag >= 1001 && view.tag <= 1003 {
+                view.removeFromSuperview()
+            }
+        }
+        
+        // Get the safe area top using the recommended approach for iOS 15+
+        let safeAreaTop: CGFloat
+        if #available(iOS 15.0, *) {
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            safeAreaTop = windowScene?.windows.first?.safeAreaInsets.top ?? 0
+        } else {
+            // Fallback for older iOS versions
+            safeAreaTop = UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0
+        }
+        
+        // Debug prints
+        print("viewContent frame: \(viewContent.frame)")
+        print("safeAreaTop: \(safeAreaTop)")
+        
+        // Calculate the available height between safe area top and viewContent
+        let availableHeight = viewContent.frame.minY - safeAreaTop
+        let sectionHeight = availableHeight / 3.0
+        
+        print("Available height: \(availableHeight)")
+        print("Section height: \(sectionHeight)")
+        
+        // Create the three transparent views
+        let redView = UIView()
+        redView.tag = 1001
+        redView.backgroundColor = .clear
+        redView.isHidden = isAdsContentV1
+        redView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let yellowView = UIView()
+        yellowView.tag = 1002
+        yellowView.backgroundColor = .clear
+        yellowView.isHidden = isAdsContentV2
+        yellowView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let greenView = UIView()
+        greenView.tag = 1003
+        greenView.backgroundColor = .clear
+        greenView.isHidden = isAdsContentV3
+        greenView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add the views to the main view
+        nativeAdView.addSubview(redView)
+        nativeAdView.addSubview(yellowView)
+        nativeAdView.addSubview(greenView)
+        
+        // Debug after adding views
+        print("Red view hidden: \(redView.isHidden)")
+        print("Yellow view hidden: \(yellowView.isHidden)")
+        print("Green view hidden: \(greenView.isHidden)")
+        
+        // Create equal height constraints for all three views
+        let equalHeightConstraint1 = redView.heightAnchor.constraint(equalTo: yellowView.heightAnchor)
+        let equalHeightConstraint2 = yellowView.heightAnchor.constraint(equalTo: greenView.heightAnchor)
+        
+        // Set up constraints
+        NSLayoutConstraint.activate([
+            // Red view (Top section)
+            redView.leadingAnchor.constraint(equalTo: nativeAdView.leadingAnchor),
+            redView.trailingAnchor.constraint(equalTo: nativeAdView.trailingAnchor),
+            redView.topAnchor.constraint(equalTo: nativeAdView.safeAreaLayoutGuide.topAnchor),
+            
+            // Yellow view (Middle section)
+            yellowView.leadingAnchor.constraint(equalTo: nativeAdView.leadingAnchor),
+            yellowView.trailingAnchor.constraint(equalTo: nativeAdView.trailingAnchor),
+            yellowView.topAnchor.constraint(equalTo: redView.bottomAnchor),
+            
+            // Green view (Bottom section)
+            greenView.leadingAnchor.constraint(equalTo: nativeAdView.leadingAnchor),
+            greenView.trailingAnchor.constraint(equalTo: nativeAdView.trailingAnchor),
+            greenView.topAnchor.constraint(equalTo: yellowView.bottomAnchor),
+            greenView.bottomAnchor.constraint(equalTo: viewContent.topAnchor),
+            
+            // Equal height constraints
+            equalHeightConstraint1,
+            equalHeightConstraint2
+        ])
+        
+        // Make these views user interaction enabled so they can receive touches
+        redView.isUserInteractionEnabled = true
+        yellowView.isUserInteractionEnabled = true
+        greenView.isUserInteractionEnabled = true
+        
+        // Add tap gesture recognizers to each view
+        let redTapGesture = UITapGestureRecognizer(target: self, action: #selector(contentAreaTapped(_:)))
+        let yellowTapGesture = UITapGestureRecognizer(target: self, action: #selector(contentAreaTapped(_:)))
+        let greenTapGesture = UITapGestureRecognizer(target: self, action: #selector(contentAreaTapped(_:)))
+        
+        redView.addGestureRecognizer(redTapGesture)
+        yellowView.addGestureRecognizer(yellowTapGesture)
+        greenView.addGestureRecognizer(greenTapGesture)
+    }
+
+    // Handle tap events on the content areas
+    @objc private func contentAreaTapped(_ sender: UITapGestureRecognizer) {
+        if let tappedView = sender.view, !tappedView.isHidden {
+            print("Content area tapped: \(tappedView.tag)")
+            // Prevent the tap from propagating to views underneath
+            sender.cancelsTouchesInView = true
+            
+            // Only handle the click if the view is visible
+//            admodNativeFullScreenListener?.onAdClicked()
+        }
     }
 }

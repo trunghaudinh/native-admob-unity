@@ -47,7 +47,11 @@ class UnityNativeFull: UnityNativeAd {
     func setCloseCTRSize(_ size: String){
         print("haudau setCloseCTRSize \(size)")
         nativeFullAdView.setCloseCTRSize(size)
-
+    }
+    
+    func setContentCTR(isAdsContentV1: Bool, isAdsContentV2: Bool, isAdsContentV3: Bool){
+        print("haudau123 setContentCTR \(isAdsContentV1) \(isAdsContentV2) \(isAdsContentV3)")
+        nativeFullAdView.setContentCTR(isAdsContentV1: isAdsContentV1, isAdsContentV2: isAdsContentV2, isAdsContentV3: isAdsContentV3)
     }
     
     func loadAndShowAds(listenerGameObject: String) {
