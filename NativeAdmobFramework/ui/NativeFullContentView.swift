@@ -327,6 +327,10 @@ class NativeFullContentView: UIView {
         nativeAdView.addSubview(yellowView)
         nativeAdView.addSubview(greenView)
         
+        // Ensure closeButton and whiteCircle are on top
+        nativeAdView.bringSubviewToFront(whiteCircle)
+        nativeAdView.bringSubviewToFront(closeButton)
+        
         // Debug after adding views
         print("Red view hidden: \(redView.isHidden)")
         print("Yellow view hidden: \(yellowView.isHidden)")
